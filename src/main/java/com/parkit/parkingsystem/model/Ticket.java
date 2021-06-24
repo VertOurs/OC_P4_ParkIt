@@ -19,6 +19,7 @@ public class Ticket {
         this.id = id;
     }
 
+
     public ParkingSpot getParkingSpot() {
         return parkingSpot;
     }
@@ -26,6 +27,7 @@ public class Ticket {
     public void setParkingSpot(ParkingSpot parkingSpot) {
         this.parkingSpot = parkingSpot;
     }
+
 
     public String getVehicleRegNumber() {
         return vehicleRegNumber;
@@ -35,6 +37,7 @@ public class Ticket {
         this.vehicleRegNumber = vehicleRegNumber;
     }
 
+
     public double getPrice() {
         return price;
     }
@@ -43,6 +46,7 @@ public class Ticket {
         this.price = price;
     }
 
+
     public Date getInTime() {
         return inTime;
     }
@@ -50,6 +54,7 @@ public class Ticket {
     public void setInTime(Date inTime) {
         this.inTime = inTime;
     }
+
 
     public Date getOutTime() {
         return outTime;
