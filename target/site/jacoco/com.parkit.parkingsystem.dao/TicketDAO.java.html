@@ -98,5 +98,26 @@ import java.util.Date;
         }
 <span class="nc" id="L99">        return false;</span>
     }
+    public int countTicket( String vehicleRegNumber) {
+<span class="nc" id="L102">        Connection con = null;</span>
+<span class="nc" id="L103">        int ticket = 0;</span>
+        try {
+<span class="nc" id="L105">            con = dataBaseConfig.getConnection();</span>
+<span class="nc" id="L106">            PreparedStatement ps = con.prepareStatement(DBConstants.COUNT_TICKET);</span>
+            //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
+<span class="nc" id="L108">            ps.setString(1, vehicleRegNumber);</span>
+<span class="nc" id="L109">            ResultSet rs = ps.executeQuery();</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">            if (rs.next()) {</span>
+<span class="nc" id="L111">                ticket = rs.getInt(1);</span>
+            }
+<span class="nc" id="L113">            dataBaseConfig.closeResultSet(rs);</span>
+<span class="nc" id="L114">            dataBaseConfig.closePreparedStatement(ps);</span>
+<span class="nc" id="L115">        } catch (Exception ex) {</span>
+<span class="nc" id="L116">            logger.error(&quot;Error count ticket&quot;, ex);</span>
+        } finally {
+<span class="nc" id="L118">            dataBaseConfig.closeConnection(con);</span>
+<span class="nc" id="L119">            return ticket;</span>
+        }
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

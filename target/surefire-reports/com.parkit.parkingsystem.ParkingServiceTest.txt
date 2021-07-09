@@ -1,4 +1,20 @@
 -------------------------------------------------------------------------------
 Test set: com.parkit.parkingsystem.ParkingServiceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.34 s - in com.parkit.parkingsystem.ParkingServiceTest
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1.503 s <<< FAILURE! - in com.parkit.parkingsystem.ParkingServiceTest
+getNextParkingNumberIfAvailableTest  Time elapsed: 1.361 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not <null>
+	at com.parkit.parkingsystem.ParkingServiceTest.getNextParkingNumberIfAvailableTest(ParkingServiceTest.java:66)
+
+processIncomingVehicle  Time elapsed: 0.135 s  <<< FAILURE!
+org.mockito.exceptions.verification.WantedButNotInvoked: 
+
+Wanted but not invoked:
+parkingSpotDAO.updateParking(
+    <any com.parkit.parkingsystem.model.ParkingSpot>
+);
+-> at com.parkit.parkingsystem.ParkingServiceTest.processIncomingVehicle(ParkingServiceTest.java:59)
+Actually, there were zero interactions with this mock.
+
+	at com.parkit.parkingsystem.ParkingServiceTest.processIncomingVehicle(ParkingServiceTest.java:59)
+
