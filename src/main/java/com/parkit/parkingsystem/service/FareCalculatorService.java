@@ -45,7 +45,8 @@ public class FareCalculatorService {
         double bikeRateWithDiscount = Fare.BIKE_RATE_PER_HOUR;
 
         if (count > 0) {
-            carRateWithDiscount =  (Fare.CAR_RATE_PER_HOUR - calculatePercentage(Fare.CAR_RATE_PER_HOUR, Fare.DISCOUNT_FOR_OLD_CUSTOMER));
+            carRateWithDiscount =  (Fare.CAR_RATE_PER_HOUR -
+                    calculatePercentage(Fare.CAR_RATE_PER_HOUR, Fare.DISCOUNT_FOR_OLD_CUSTOMER));
             bikeRateWithDiscount = (Fare.BIKE_RATE_PER_HOUR - calculatePercentage(Fare.BIKE_RATE_PER_HOUR, Fare.DISCOUNT_FOR_OLD_CUSTOMER));
         }
 
