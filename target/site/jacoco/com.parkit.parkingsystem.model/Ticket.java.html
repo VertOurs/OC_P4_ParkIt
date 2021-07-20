@@ -3,62 +3,125 @@
 import java.util.Date;
 
 <span class="fc" id="L5">public class Ticket {</span>
+    /**
+     * private attribute id.
+     */
     private int id;
+    /**
+     * private attribute parkingSpot.
+     */
     private ParkingSpot parkingSpot;
+    /**
+     * private attribute vehicleRegNumber.
+     */
     private String vehicleRegNumber;
+    /**
+     * private attribute price.
+     */
     private double price;
+    /**
+     * private attribute inTime.
+     */
     private Date inTime;
+    /**
+     * private attribute outTime.
+     */
     private Date outTime;
 
+    /**
+     * getter.
+     * @return id
+     */
     public int getId() {
-<span class="fc" id="L14">        return id;</span>
+<span class="fc" id="L36">        return id;</span>
     }
 
-<span class="fc" id="L17">    public void setId(int id) { this.id = id; }</span>
+    /**
+     * setter.
+     * @param idField
+     */
+    public void setId(final int idField) {
+<span class="fc" id="L44">        this.id = idField;</span>
+<span class="fc" id="L45">    }</span>
 
-
+    /**
+     * getter.
+     * @return parkingSpot
+     */
     public ParkingSpot getParkingSpot() {
-<span class="fc" id="L21">        return parkingSpot;</span>
+<span class="fc" id="L52">        return parkingSpot;</span>
     }
 
-    public void setParkingSpot(ParkingSpot parkingSpot) {
-<span class="fc" id="L25">        this.parkingSpot = parkingSpot;</span>
-<span class="fc" id="L26">    }</span>
+    /**
+     * setter.
+     * @param parkingSpotField
+     */
+    public void setParkingSpot(final ParkingSpot parkingSpotField) {
+<span class="fc" id="L60">        this.parkingSpot = parkingSpotField;</span>
+<span class="fc" id="L61">    }</span>
 
-
+    /**
+     * getter.
+     * @return vehicleRegNumber
+     */
     public String getVehicleRegNumber() {
-<span class="fc" id="L30">        return vehicleRegNumber;</span>
+<span class="fc" id="L68">        return vehicleRegNumber;</span>
     }
 
-    public void setVehicleRegNumber(String vehicleRegNumber) {
-<span class="fc" id="L34">        this.vehicleRegNumber = vehicleRegNumber;</span>
-<span class="fc" id="L35">    }</span>
+    /**
+     * setter.
+     * @param vehicleRegNumberField
+     */
+    public void setVehicleRegNumber(final String vehicleRegNumberField) {
+<span class="fc" id="L76">        this.vehicleRegNumber = vehicleRegNumberField;</span>
+<span class="fc" id="L77">    }</span>
 
-
+    /**
+     * getter.
+     * @return price
+     */
     public double getPrice() {
-<span class="fc" id="L39">        return price;</span>
+<span class="fc" id="L84">        return price;</span>
     }
 
-    public void setPrice(double price) {
-<span class="fc" id="L43">        this.price = price;</span>
-<span class="fc" id="L44">    }</span>
+    /**
+     * setter.
+     * @param priceField
+     */
+    public void setPrice(final double priceField) {
+<span class="fc" id="L92">        this.price = priceField;</span>
+<span class="fc" id="L93">    }</span>
 
-
+    /**
+     * getter.
+     * @return inTime
+     */
     public Date getInTime() {
-<span class="fc" id="L48">        return inTime;</span>
+<span class="fc" id="L100">        return inTime;</span>
     }
 
-    public void setInTime(Date inTime) {
-<span class="fc" id="L52">        this.inTime = inTime;</span>
-<span class="fc" id="L53">    }</span>
+    /**
+     * setter.
+     * @param inTimeField
+     */
+    public void setInTime(final Date inTimeField) {
+<span class="fc" id="L108">        this.inTime = inTimeField;</span>
+<span class="fc" id="L109">    }</span>
 
-
+    /**
+     * getter.
+     * @return outTime
+     */
     public Date getOutTime() {
-<span class="fc" id="L57">        return outTime;</span>
+<span class="fc" id="L116">        return outTime;</span>
     }
 
-    public void setOutTime(Date outTime) {
-<span class="fc" id="L61">        this.outTime = outTime;</span>
-<span class="fc" id="L62">    }</span>
+    /**
+     * setter.
+     * @param outTimeField
+     */
+    public void setOutTime(final Date outTimeField) {
+<span class="fc" id="L124">        this.outTime = outTimeField;</span>
+<span class="fc" id="L125">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

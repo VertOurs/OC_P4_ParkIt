@@ -1,12 +1,54 @@
 package com.parkit.parkingsystem.constants;
 
-public class DBConstants {
+public final class DBConstants {
+    /**
+     * private constructor for avoid "HideUtilityClassConstructor".
+     */
+    private DBConstants() {
 
-    public static final String GET_NEXT_PARKING_SPOT = "select min(PARKING_NUMBER) from parking where AVAILABLE = true and TYPE = ?";
-    public static final String UPDATE_PARKING_SPOT = "update parking set available = ? where PARKING_NUMBER = ?";
+    }
 
-    public static final String SAVE_TICKET = "insert into ticket(PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME) values(?,?,?,?,?)";
-    public static final String UPDATE_TICKET = "update ticket set PRICE=?, OUT_TIME=? where ID=?";
-    public static final String GET_TICKET = "select t.PARKING_NUMBER, t.ID, t.PRICE, t.IN_TIME, t.OUT_TIME, p.TYPE from ticket t,parking p where p.parking_number = t.parking_number and t.VEHICLE_REG_NUMBER=? and t.OUT_TIME is null order by t.IN_TIME  limit 1";
-    public static final String COUNT_TICKET = "select count(t.ID) as tickets from ticket t where t.VEHICLE_REG_NUMBER=?";
+    /**
+     * Get next Parking Spot.
+     */
+    public static final String GET_NEXT_PARKING_SPOT =
+            "select min(PARKING_NUMBER) from parking where AVAILABLE ="
+          + " true and TYPE = ?";
+    /**
+     * Update Parking Spot.
+     */
+    public static final String UPDATE_PARKING_SPOT = "update parking"
+            + " set available= ? where PARKING_NUMBER = ?";
+    /**
+     * Save Ticket.
+     */
+    public static final String SAVE_TICKET = "insert into ticket"
+            + "(PARKING_NUMBER,"
+            + " VEHICLE_REG_NUMBER,"
+            + " PRICE,"
+            + " IN_TIME,"
+            + " OUT_TIME) values(?,?,?,?,?)";
+    /**
+     * Update Ticket.
+     */
+    public static final String UPDATE_TICKET = "update ticket set"
+            + " PRICE=?,"
+            + " OUT_TIME=? where ID=?";
+    /**
+     * Get Ticket.
+     */
+    public static final String GET_TICKET = "select t.PARKING_NUMBER,"
+            + " t.ID,"
+            + " t.PRICE,"
+            + " t.IN_TIME,"
+            + " t.OUT_TIME,"
+            + " p.TYPE "
+            + "from ticket t,parking p where p.parking_number ="
+            + " t.parking_number and t.VEHICLE_REG_NUMBER=? and"
+            + " t.OUT_TIME is null order by t.IN_TIME  limit 1";
+    /**
+     * Count Ticket.
+     */
+    public static final String COUNT_TICKET = "select count(t.ID)"
+            + " as tickets from ticket t where t.VEHICLE_REG_NUMBER=?";
 }

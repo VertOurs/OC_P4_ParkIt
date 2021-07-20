@@ -4,11 +4,26 @@ import com.parkit.parkingsystem.service.InteractiveShell;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class App {
-    private static final Logger logger = LogManager.getLogger("App");
-    @SuppressWarnings("checkstyle:WhitespaceAround")
-    public static void main(String args[]){
-        logger.info("Initializing Parking System");
+ public final class App {
+     /**
+      * Private constructor for avoid "HideUtilityClassConstructor".
+      */
+     private App() {
+
+     }
+    /**
+     * @see Logger
+     * @autor OC
+     */
+    private static final Logger LOGGER = LogManager.getLogger("App");
+
+    /**
+    * Allows you to launch the application.
+     * @autor OC
+     * @param args
+    * **/
+    public static void main(final String[] args) {
+        LOGGER.info("Initializing Parking System");
         InteractiveShell.loadInterface();
     }
 }

@@ -14,6 +14,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Date;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -61,25 +63,19 @@ public class ParkingDataBaseIT {
         assertFalse(thisParking.isAvailable());
     }
 
-    @Test
-    public void testParkingABike(){
-        when(inputReaderUtil.readSelection()).thenReturn(2);
-        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-        parkingService.processIncomingVehicle();
-        Ticket thisTicket = ticketDAO.getTicket("ABCDEF");
-        assertNotNull(thisTicket.getId());
-    }
 
     @Test
-    public void testExitingACar(){
-        when(inputReaderUtil.readSelection()).thenReturn(1);
+    public void testParkingLotExit(){
+        testParkingACar();
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-        parkingService.processIncomingVehicle();
         Ticket thisTicket = ticketDAO.getTicket("ABCDEF");
+        thisTicket.setInTime(new Date(System.currentTimeMillis()-1000*60*60));
+        assertNotNull(thisTicket.getPrice());
         parkingService.processExitingVehicle();
-        assertNotNull(thisTicket.getId());
-        ParkingSpot thisParking = thisTicket.getParkingSpot();
-        assertFalse(thisParking.isAvailable());
+        assertNotEquals(thisTicket.getInTime(), thisTicket.getOutTime());
+
+
+        //TODO: vérifier que le tarif généré et l'heure de sortie sont correctement renseignés dans la base de données
     }
 
 

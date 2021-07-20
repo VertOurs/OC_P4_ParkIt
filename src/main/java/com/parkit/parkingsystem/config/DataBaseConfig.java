@@ -4,48 +4,82 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
 
 public class DataBaseConfig {
+    /**
+     * @see Logger
+     */
+    private static final Logger LOGGER = LogManager.getLogger("DataBaseConfig");
 
-    private static final Logger logger = LogManager.getLogger("DataBaseConfig");
-
-    public Connection getConnection() throws ClassNotFoundException, SQLException, IOException {
-        logger.info("Create DB connection");
+    /**
+     * method for connectiong to the database.
+     * @return DriverManager.getConnection
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     * @throws IOException
+     */
+    public Connection getConnection() throws ClassNotFoundException,
+            SQLException,
+                                             IOException {
+        LOGGER.info("Create DB connection");
         Class.forName("com.mysql.cj.jdbc.Driver");
         return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/prod?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false","root","rootroot");
+                "jdbc:mysql://localhost:3306/"
+                        + "prod?useUnicode=true&useJDBCCompliantTimezoneShift="
+                        + "true&useLegacyDatetimeCode="
+                        + "false&serverTimezone="
+                        + "UTC&autoReconnect="
+                        + "true&useSSL=false", "root", "rootroot");
     }
 
-    public void closeConnection(Connection con){
-        if(con!=null){
+    /**
+     * allows to close Connection with sql error handling.
+     * @param con
+     */
+    public void closeConnection(final Connection con) {
+        if (con != null) {
             try {
                 con.close();
-                logger.info("Closing DB connection");
+                LOGGER.info("Closing DB connection");
             } catch (SQLException e) {
-                logger.error("Error while closing connection",e);
+                LOGGER.error("Error while closing connection", e);
             }
         }
     }
 
-    public void closePreparedStatement(PreparedStatement ps) {
-        if(ps!=null){
+    /**
+     * allows to close PreparedStatement with sql error handling.
+     * @param ps
+     */
+    public void closePreparedStatement(final PreparedStatement ps) {
+        if (ps != null) {
             try {
                 ps.close();
-                logger.info("Closing Prepared Statement");
+                LOGGER.info("Closing Prepared Statement");
             } catch (SQLException e) {
-                logger.error("Error while closing prepared statement",e);
+                LOGGER.error("Error while closing prepared statement", e);
             }
         }
     }
 
-    public void closeResultSet(ResultSet rs) {
-        if(rs!=null){
+    /**
+     * allows to close resultSet with sql error handling.
+     * @param rs
+     */
+    public void closeResultSet(final ResultSet rs) {
+        if (rs != null) {
             try {
                 rs.close();
-                logger.info("Closing Result Set");
+                LOGGER.info("Closing Result Set");
             } catch (SQLException e) {
-                logger.error("Error while closing result set",e);
+                LOGGER.error("Error while closing result set", e);
             }
         }
     }

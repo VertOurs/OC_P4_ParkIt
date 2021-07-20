@@ -6,32 +6,52 @@ import org.apache.logging.log4j.Logger;
 import java.util.Scanner;
 
 <span class="nc" id="L8">public class InputReaderUtil {</span>
+    /**
+     * private attribute Scanner.
+     */
+<span class="nc" id="L12">    private static Scanner scan = new Scanner(System.in);</span>
+    /**
+     * private attribute Logger.
+     */
+<span class="nc" id="L16">    private static final Logger LOGGER = LogManager.getLogger(</span>
+            &quot;InputReaderUtil&quot;);
 
-<span class="nc" id="L10">    private static Scanner scan = new Scanner(System.in);</span>
-<span class="nc" id="L11">    private static final Logger logger = LogManager.getLogger(&quot;InputReaderUtil&quot;);</span>
-
+    /**
+     * allow you to read userinput in keyboard.
+     * @return input
+     */
     public int readSelection() {
         try {
-<span class="nc" id="L15">            int input = Integer.parseInt(scan.nextLine());</span>
-<span class="nc" id="L16">            return input;</span>
-<span class="nc" id="L17">        }catch(Exception e){</span>
-<span class="nc" id="L18">            logger.error(&quot;Error while reading user input from Shell&quot;, e);</span>
-<span class="nc" id="L19">            System.out.println(&quot;Error reading input. Please enter valid number for proceeding further&quot;);</span>
-<span class="nc" id="L20">            return -1;</span>
+<span class="nc" id="L25">            int input = Integer.parseInt(scan.nextLine());</span>
+<span class="nc" id="L26">            return input;</span>
+<span class="nc" id="L27">        } catch (Exception e) {</span>
+<span class="nc" id="L28">            LOGGER.error(&quot;Error while reading user input from Shell&quot;,</span>
+                    e);
+<span class="nc" id="L30">            System.out.println(&quot;Error reading input.&quot;</span>
+                   + &quot; Please enter valid number for proceeding further&quot;);
+<span class="nc" id="L32">            return -1;</span>
         }
     }
 
+    /**
+     * allow you to read the vehicle registration number.
+     * @return vehicleRegNumber
+     * @throws Exception
+     */
     public String readVehicleRegistrationNumber() throws Exception {
         try {
-<span class="nc" id="L26">            String vehicleRegNumber= scan.nextLine();</span>
-<span class="nc bnc" id="L27" title="All 4 branches missed.">            if(vehicleRegNumber == null || vehicleRegNumber.trim().length()==0) {</span>
-<span class="nc" id="L28">                throw new IllegalArgumentException(&quot;Invalid input provided&quot;);</span>
+<span class="nc" id="L43">            String vehicleRegNumber = scan.nextLine();</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (vehicleRegNumber == null</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">                    || vehicleRegNumber.trim().length() == 0) {</span>
+<span class="nc" id="L46">                throw new IllegalArgumentException(&quot;Invalid input provided&quot;);</span>
             }
-<span class="nc" id="L30">            return vehicleRegNumber;</span>
-<span class="nc" id="L31">        }catch(Exception e){</span>
-<span class="nc" id="L32">            logger.error(&quot;Error while reading user input from Shell&quot;, e);</span>
-<span class="nc" id="L33">            System.out.println(&quot;Error reading input. Please enter a valid string for vehicle registration number&quot;);</span>
-<span class="nc" id="L34">            throw e;</span>
+<span class="nc" id="L48">            return vehicleRegNumber;</span>
+<span class="nc" id="L49">        } catch (Exception e) {</span>
+<span class="nc" id="L50">            LOGGER.error(&quot;Error while reading user input from Shell&quot;,</span>
+                    e);
+<span class="nc" id="L52">            System.out.println(&quot;Error reading input. Please enter &quot;</span>
+                    + &quot;a valid string for vehicle registration number&quot;);
+<span class="nc" id="L54">            throw e;</span>
         }
     }
 
