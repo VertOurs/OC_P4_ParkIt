@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
-<file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\App.java">
-</file>
 <file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\config\DataBaseConfig.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 </file>
@@ -10,11 +8,9 @@
 </file>
 <file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\dao\ParkingSpotDAO.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
-<error line="23" column="27" severity="error" message="Variable &apos;dataBaseConfig&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
 </file>
 <file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\dao\TicketDAO.java">
-<error line="28" column="27" severity="error" message="Variable &apos;dataBaseConfig&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
-<error line="86" column="42" severity="error" message="&apos;6&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="102" column="42" severity="error" message="&apos;6&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
 </file>
 <file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\model\ParkingSpot.java">
 <error line="1" severity="error" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>

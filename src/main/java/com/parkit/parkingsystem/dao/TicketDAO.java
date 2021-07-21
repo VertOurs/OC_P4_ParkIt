@@ -25,7 +25,23 @@ public class TicketDAO {
     /**
      * @see DataBaseConfig
      */
-    public DataBaseConfig dataBaseConfig = new DataBaseConfig();
+    private DataBaseConfig dataBaseConfig = new DataBaseConfig();
+
+    /**
+     * getter.
+     * @return dataBaseConfig
+     */
+    public DataBaseConfig getDataBaseConfig() {
+        return dataBaseConfig;
+    }
+
+    /**
+     * setter.
+     * @param dataBaseConfigField
+     */
+    public void setDataBaseConfig(final DataBaseConfig dataBaseConfigField) {
+        this.dataBaseConfig = dataBaseConfigField;
+    }
 
     /**
      * allow to convert date.

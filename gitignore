@@ -21,6 +21,8 @@ logs_saved/
 *.iws
 *.iml
 *.ipr
+*xml
+*html
 
 ### NetBeans ###
 /nbproject/private/
