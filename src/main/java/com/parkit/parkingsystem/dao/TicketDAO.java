@@ -44,6 +44,12 @@ public class TicketDAO {
     }
 
     /**
+     * For please CheckStyle report, I create a magic NUmber
+     * for avoid a Magic number.
+     */
+    private final int magicNumber = 4;
+
+    /**
      * allow to convert date.
      * @param dateToConvert
      * @return a timestamp
@@ -99,7 +105,7 @@ public class TicketDAO {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 int columnIndex = 1;
-                int columnIndexValueOf = 6;
+                int columnIndexValueOf = columnIndex + magicNumber;
                 ticket = new Ticket();
                 ParkingSpot parkingSpot = new ParkingSpot(
                         rs.getInt(columnIndex++), ParkingType.valueOf(

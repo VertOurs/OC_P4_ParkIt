@@ -44,6 +44,7 @@ public class ParkingDataBaseIT {
     @BeforeEach
     private void setUpPerTest() throws Exception {
         when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
+        when(inputReaderUtil.readSelection()).thenReturn(1);
         dataBasePrepareService.clearDataBaseEntries();
     }
 
@@ -54,7 +55,6 @@ public class ParkingDataBaseIT {
 
     @Test
     public void testParkingACar(){
-        when(inputReaderUtil.readSelection()).thenReturn(1);
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         parkingService.processIncomingVehicle();
         Ticket thisTicket = ticketDAO.getTicket("ABCDEF");
@@ -65,14 +65,17 @@ public class ParkingDataBaseIT {
 
 
     @Test
-    public void testParkingLotExit(){
-        testParkingACar();
+    public void testParkingLotExit() throws InterruptedException {
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+        parkingService.processIncomingVehicle();
+        Thread.sleep(1000);
+        parkingService.processExitingVehicle();
         Ticket thisTicket = ticketDAO.getTicket("ABCDEF");
         thisTicket.setInTime(new Date(System.currentTimeMillis()-1000*60*60));
-        assertNotNull(thisTicket.getPrice());
-        parkingService.processExitingVehicle();
-        assertNotEquals(thisTicket.getInTime(), thisTicket.getOutTime());
+
+        assertEquals(1.5, thisTicket.getPrice());
+        assertNotNull(thisTicket.getOutTime());
+
 
 
         //TODO: vérifier que le tarif généré et l'heure de sortie sont correctement renseignés dans la base de données

@@ -25,8 +25,8 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2021</copyright>
     <item>
-      <title>File: 10,
-             Errors: 10,
+      <title>File: 3,
+             Errors: 3,
              Warnings: 0,
              Infos: 0
       </title>
@@ -46,20 +46,6 @@ under the License.
           <tbody>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.parkit.parkingsystem.constants.DBConstants.java">com/parkit/parkingsystem/constants/DBConstants.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#com.parkit.parkingsystem.package-info.java">com/parkit/parkingsystem/package-info.java</a>
                 </td>
                 <td>
@@ -74,91 +60,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#com.parkit.parkingsystem.config.DataBaseConfig.java">com/parkit/parkingsystem/config/DataBaseConfig.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.parkit.parkingsystem.util.InputReaderUtil.java">com/parkit/parkingsystem/util/InputReaderUtil.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.parkit.parkingsystem.dao.ParkingSpotDAO.java">com/parkit/parkingsystem/dao/ParkingSpotDAO.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#com.parkit.parkingsystem.service.InteractiveShell.java">com/parkit/parkingsystem/service/InteractiveShell.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.parkit.parkingsystem.model.ParkingSpot.java">com/parkit/parkingsystem/model/ParkingSpot.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.parkit.parkingsystem.dao.TicketDAO.java">com/parkit/parkingsystem/dao/TicketDAO.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="${project.url}/checkstyle.html#com.parkit.parkingsystem.service.FareCalculatorService.java">com/parkit/parkingsystem/service/FareCalculatorService.java</a>
                 </td>
                 <td>
                   0
