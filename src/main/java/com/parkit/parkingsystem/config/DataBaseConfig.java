@@ -4,12 +4,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import java.util.Properties;
 
 
 public class DataBaseConfig {
@@ -26,17 +27,21 @@ public class DataBaseConfig {
      * @throws IOException
      */
     public Connection getConnection() throws ClassNotFoundException,
-            SQLException,
+                                             SQLException,
                                              IOException {
         LOGGER.info("Create DB connection");
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/"
-                        + "prod?useUnicode=true&useJDBCCompliantTimezoneShift="
-                        + "true&useLegacyDatetimeCode="
-                        + "false&serverTimezone="
-                        + "UTC&autoReconnect="
-                        + "true&useSSL=false", "root", "rootroot");
+
+        Properties DBProperties = new Properties();
+        InputStream inputStream = getClass().getClassLoader().
+                getResourceAsStream("log4j2.properties");
+        DBProperties.load(inputStream);
+        String driver = DBProperties.getProperty("driver");
+        String url = DBProperties.getProperty("url");
+        String username = DBProperties.getProperty("username");
+        String password = DBProperties.getProperty("password");
+
+        Class.forName(driver);
+        return DriverManager.getConnection(url, username, password);
     }
 
     /**

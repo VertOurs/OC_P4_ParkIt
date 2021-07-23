@@ -44,11 +44,23 @@ public final class DBConstants {
             + " t.OUT_TIME,"
             + " p.TYPE "
             + "from ticket t,parking p where p.parking_number ="
+            + " t.parking_number and t.VEHICLE_REG_NUMBER=? "
+            + " order by t.IN_TIME  limit 1";
+
+    public static final String GET_ICOMMING_TICKET = "select t.PARKING_NUMBER,"
+            + " t.ID,"
+            + " t.PRICE,"
+            + " t.IN_TIME,"
+            + " t.OUT_TIME,"
+            + " p.TYPE "
+            + "from ticket t,parking p where p.parking_number ="
             + " t.parking_number and t.VEHICLE_REG_NUMBER=? and"
             + " t.OUT_TIME is null order by t.IN_TIME  limit 1";
     /**
      * Count Ticket.
      */
     public static final String COUNT_TICKET = "select count(t.ID)"
-            + " as tickets from ticket t where t.VEHICLE_REG_NUMBER=?";
+            + " as tickets from ticket t where t.VEHICLE_REG_NUMBER=? and t.OUT_TIME is not null ";
+
+    public static final String UPDATE_INTIME = "update ticket set IN_TIME=? where ID=?";
 }

@@ -97,7 +97,11 @@ import java.util.Date;
      * @return inTime
      */
     public Date getInTime() {
-<span class="fc" id="L100">        return inTime;</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">        if (inTime != null) {</span>
+<span class="fc" id="L101">            return new Date(inTime.getTime());</span>
+        } else {
+<span class="fc" id="L103">            return null;</span>
+        }
     }
 
     /**
@@ -105,15 +109,23 @@ import java.util.Date;
      * @param inTimeField
      */
     public void setInTime(final Date inTimeField) {
-<span class="fc" id="L108">        this.inTime = inTimeField;</span>
-<span class="fc" id="L109">    }</span>
+<span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (inTimeField != null) {</span>
+<span class="fc" id="L113">            this.inTime = new Date(inTimeField.getTime());</span>
+        } else {
+<span class="nc" id="L115">            this.inTime = null ;</span>
+        }
+<span class="fc" id="L117">    }</span>
 
     /**
      * getter.
      * @return outTime
      */
     public Date getOutTime() {
-<span class="fc" id="L116">        return outTime;</span>
+<span class="fc bfc" id="L124" title="All 2 branches covered.">        if (outTime != null) {</span>
+<span class="fc" id="L125">            return new Date(outTime.getTime());</span>
+        } else {
+<span class="fc" id="L127">            return null;</span>
+        }
     }
 
     /**
@@ -121,7 +133,10 @@ import java.util.Date;
      * @param outTimeField
      */
     public void setOutTime(final Date outTimeField) {
-<span class="fc" id="L124">        this.outTime = outTimeField;</span>
-<span class="fc" id="L125">    }</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        if (outTimeField != null) { this.outTime = new Date(outTimeField.getTime());  }</span>
+        else {
+<span class="fc" id="L138">            this.outTime = null ;</span>
+        }
+<span class="fc" id="L140">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="8.29">
+<file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\config\DataBaseConfig.java">
+<error line="34" column="20" severity="error" message="Name &apos;DBProperties&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck"/>
+</file>
+<file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\constants\DBConstants.java">
+<error line="50" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+<error line="63" severity="error" message="Line is longer than 80 characters (found 99)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="65" severity="error" message="Line is longer than 80 characters (found 88)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="65" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck"/>
+</file>
+<file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\dao\ParkingSpotDAO.java">
+<error line="10" column="8" severity="error" message="Unused import - java.io.IOException." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+</file>
+<file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\dao\TicketDAO.java">
+<error line="50" column="30" severity="error" message="Name &apos;magicNumber&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
+<error line="113" severity="error" message="Line is longer than 80 characters (found 118)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="113" column="58" severity="error" message="&apos;(&apos; is followed by whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck"/>
+<error line="113" column="107" severity="error" message="&apos;6&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="117" column="46" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="118" column="50" severity="error" message="&apos;4&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="119" column="51" severity="error" message="&apos;5&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
+<error line="158" column="5" severity="error" message="Class &apos;TicketDAO&apos; looks like designed for extension (can be subclassed), but the method &apos;updateInTime&apos; does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class &apos;TicketDAO&apos; final or making the method &apos;updateInTime&apos; static/final/abstract/empty, or adding allowed annotation for the method." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="158" column="5" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.MissingJavadocMethodCheck"/>
+<error line="158" column="33" severity="error" message="Parameter inTime should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="158" column="46" severity="error" message="Parameter Id should be final." source="com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck"/>
+<error line="158" column="50" severity="error" message="Name &apos;Id&apos; must match pattern &apos;^[a-z][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+</file>
+<file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\model\Ticket.java">
+<error line="115" column="32" severity="error" message="&apos;;&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
+<error line="136" severity="error" message="Line is longer than 80 characters (found 87)." source="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck"/>
+<error line="136" column="35" severity="error" message="&apos;{&apos; at column 35 should have line break after." source="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
+<error line="136" column="87" severity="error" message="&apos;}&apos; at column 87 should be on the same line as the next part of a multi-block statement (one that directly contains multiple blocks: if/else-if/else, do/while or try/catch/finally)." source="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
+<error line="138" column="33" severity="error" message="&apos;;&apos; is preceded with whitespace." source="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck"/>
+</file>
 <file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\package-info.java">
 <error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 </file>
 <file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\java\com\parkit\parkingsystem\service\InteractiveShell.java">
 <error line="49" column="22" severity="error" message="&apos;3&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-</file>
-<file name="C:\Users\rapha\Google Drive\11 reconversion dev JAVA\3 Openclassroom\2 EXO EN COURS\P4\1 Dépot git\parkingsystem\src\main\resources\log4j2.properties">
-<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 </file>
 </checkstyle>

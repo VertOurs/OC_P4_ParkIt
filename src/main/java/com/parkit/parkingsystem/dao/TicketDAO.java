@@ -47,7 +47,7 @@ public class TicketDAO {
      * For please CheckStyle report, I create a magic NUmber
      * for avoid a Magic number.
      */
-    private final int magicNumber = 4;
+    private static final int magicNumber = 4;
 
     /**
      * allow to convert date.
@@ -69,9 +69,10 @@ public class TicketDAO {
      */
     public boolean saveTicket(final Ticket ticket) {
         Connection con = null;
+        PreparedStatement ps = null;
         try {
             con = dataBaseConfig.getConnection();
-            PreparedStatement ps = con.prepareStatement(
+            ps = con.prepareStatement(
                     DBConstants.SAVE_TICKET);
              int parameterIndex = 1;
             ps.setInt(parameterIndex++, ticket.getParkingSpot().getId());
@@ -80,11 +81,15 @@ public class TicketDAO {
             ps.setTimestamp(parameterIndex++, getTimeStamp(ticket.getInTime()));
             ps.setTimestamp(parameterIndex++, (ticket.getOutTime() == null)
                     ? null : (new Timestamp(ticket.getOutTime().getTime())));
+
             return ps.execute();
         } catch (Exception ex) {
             LOGGER.error("Error fetching next available slot", ex);
         } finally {
+
+            dataBaseConfig.closePreparedStatement(ps);
             dataBaseConfig.closeConnection(con);
+
             return false;
         }
     }
@@ -104,18 +109,14 @@ public class TicketDAO {
             ps.setString(1, vehicleRegNumber);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                int columnIndex = 1;
-                int columnIndexValueOf = columnIndex + magicNumber;
                 ticket = new Ticket();
-                ParkingSpot parkingSpot = new ParkingSpot(
-                        rs.getInt(columnIndex++), ParkingType.valueOf(
-                        rs.getString((columnIndexValueOf))), false);
+                ParkingSpot parkingSpot = new ParkingSpot( rs.getInt(1), ParkingType.valueOf(rs.getString(6)), false);
                 ticket.setParkingSpot(parkingSpot);
-                ticket.setId(rs.getInt(columnIndex++));
+                ticket.setId(rs.getInt(2));
                 ticket.setVehicleRegNumber(vehicleRegNumber);
-                ticket.setPrice(rs.getDouble(columnIndex++));
-                ticket.setInTime(rs.getTimestamp(columnIndex++));
-                ticket.setOutTime(rs.getTimestamp(columnIndex++));
+                ticket.setPrice(rs.getDouble(3));
+                ticket.setInTime(rs.getTimestamp(4));
+                ticket.setOutTime(rs.getTimestamp(5));
             }
             dataBaseConfig.closeResultSet(rs);
             dataBaseConfig.closePreparedStatement(ps);
@@ -144,6 +145,7 @@ public class TicketDAO {
                     ticket.getOutTime().getTime()));
             ps.setInt(parameterIndex++, ticket.getId());
             ps.execute();
+
             return true;
         } catch (Exception ex) {
             LOGGER.error("Error saving ticket info", ex);
@@ -153,6 +155,27 @@ public class TicketDAO {
         return false;
     }
 
+    public boolean updateInTime(Date inTime, int Id) {
+        Connection con = null;
+        try {
+            int parameterIndex = 1;
+            con = dataBaseConfig.getConnection();
+            PreparedStatement ps = con.prepareStatement(
+                    DBConstants.UPDATE_INTIME);
+
+            ps.setTimestamp(1, new Timestamp(
+                    inTime.getTime()));
+            ps.setInt(2, Id);
+            ps.execute();
+
+            return true;
+        } catch (Exception ex) {
+            LOGGER.error("Error saving ticket info", ex);
+        } finally {
+            dataBaseConfig.closeConnection(con);
+        }
+        return false;
+    }
     /**
      * allows to count Ticket.
      * @param vehicleRegNumber

@@ -97,7 +97,11 @@ public class Ticket {
      * @return inTime
      */
     public Date getInTime() {
-        return inTime;
+        if (inTime != null) {
+            return new Date(inTime.getTime());
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -105,7 +109,11 @@ public class Ticket {
      * @param inTimeField
      */
     public void setInTime(final Date inTimeField) {
-        this.inTime = inTimeField;
+        if (inTimeField != null) {
+            this.inTime = new Date(inTimeField.getTime());
+        } else {
+            this.inTime = null ;
+        }
     }
 
     /**
@@ -113,7 +121,11 @@ public class Ticket {
      * @return outTime
      */
     public Date getOutTime() {
-        return outTime;
+        if (outTime != null) {
+            return new Date(outTime.getTime());
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -121,6 +133,9 @@ public class Ticket {
      * @param outTimeField
      */
     public void setOutTime(final Date outTimeField) {
-        this.outTime = outTimeField;
+        if (outTimeField != null) { this.outTime = new Date(outTimeField.getTime());  }
+        else {
+            this.outTime = null ;
+        }
     }
 }
