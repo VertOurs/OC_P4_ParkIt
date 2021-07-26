@@ -55,18 +55,6 @@ public class ParkingDataBaseIT {
     }
 
     @Test
-    public void testParkingLotExit() throws InterruptedException {
-        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-        parkingService.processIncomingVehicle();
-        Ticket thisTicket = ticketDAO.getTicket("ABCDEF");
-        ticketDAO.updateInTime(new Date(System.currentTimeMillis() - 1000 * 60 * 60), thisTicket.getId());
-        parkingService.processExitingVehicle();
-        thisTicket = ticketDAO.getTicket("ABCDEF");
-        assertEquals(1.5, thisTicket.getPrice());
-        assertNotNull(thisTicket.getOutTime());
-    }
-
-    @Test
     public void testParkingACar(){
         ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
         parkingService.processIncomingVehicle();
@@ -76,11 +64,16 @@ public class ParkingDataBaseIT {
         assertFalse(thisParking.isAvailable());
     }
 
-
-
-
-        //TODO: vérifier que le tarif généré et l'heure de sortie sont correctement renseignés dans la base de données
-
-
-
+    @Test
+    public void testParkingLotExit() throws InterruptedException {
+        ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+        parkingService.processIncomingVehicle();
+        Ticket thisTicket = ticketDAO.getTicket("ABCDEF");
+        ticketDAO.updateInTime(new Date(System.currentTimeMillis() - 60 * 60 * 1000), thisTicket.getId());
+        //Thread.sleep(100);
+        parkingService.processExitingVehicle();
+        thisTicket = ticketDAO.getTicket("ABCDEF");
+        assertEquals(1.5, thisTicket.getPrice());
+        assertNotNull(thisTicket.getOutTime());
+    }
 }

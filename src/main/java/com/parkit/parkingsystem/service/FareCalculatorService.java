@@ -48,10 +48,10 @@ public class FareCalculatorService {
         }
         LocalDateTime inHour = convertLocalDateTime(ticket.getInTime());
         LocalDateTime outHour = convertLocalDateTime(ticket.getOutTime());
-        long duration = Duration.between(inHour, outHour).toMinutes();
-        long durationThirtyMinutes = duration;
+        double duration = Duration.between(inHour, outHour).getSeconds();
+        double durationThirtyMinutes = duration;
 
-        final int freeMinutes = 30;
+        final int freeMinutes = 1800;
         if (duration < freeMinutes) {
             durationThirtyMinutes = 0;
         }
@@ -68,17 +68,15 @@ public class FareCalculatorService {
                             Fare.DISCOUNT_FOR_OLD_CUSTOMER));
         }
 
-        final int oneHour = 60;
+        final int oneHour = 3600;
         switch (ticket.getParkingSpot().getParkingType()) {
             case CAR:
-                ticket.setPrice((durationThirtyMinutes * carRateWithDiscount)
-                        / oneHour);
+                ticket.setPrice((durationThirtyMinutes /oneHour) * carRateWithDiscount);
 
                 break;
 
             case BIKE:
-                ticket.setPrice((durationThirtyMinutes * bikeRateWithDiscount)
-                        / oneHour);
+                ticket.setPrice((durationThirtyMinutes / oneHour) * bikeRateWithDiscount);
                 break;
 
             default: throw new IllegalArgumentException("Unkown Parking Type");

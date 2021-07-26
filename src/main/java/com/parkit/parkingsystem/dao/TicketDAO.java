@@ -7,6 +7,7 @@ import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import com.parkit.parkingsystem.constants.Index;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -44,12 +45,6 @@ public class TicketDAO {
     }
 
     /**
-     * For please CheckStyle report, I create a magic NUmber
-     * for avoid a Magic number.
-     */
-    private static final int magicNumber = 4;
-
-    /**
      * allow to convert date.
      * @param dateToConvert
      * @return a timestamp
@@ -74,12 +69,12 @@ public class TicketDAO {
             con = dataBaseConfig.getConnection();
             ps = con.prepareStatement(
                     DBConstants.SAVE_TICKET);
-             int parameterIndex = 1;
-            ps.setInt(parameterIndex++, ticket.getParkingSpot().getId());
-            ps.setString(parameterIndex++, ticket.getVehicleRegNumber());
-            ps.setDouble(parameterIndex++, ticket.getPrice());
-            ps.setTimestamp(parameterIndex++, getTimeStamp(ticket.getInTime()));
-            ps.setTimestamp(parameterIndex++, (ticket.getOutTime() == null)
+
+            ps.setInt(Index.PARAMETER_INDEX_ONE, ticket.getParkingSpot().getId());
+            ps.setString(Index.PARAMETER_INDEX_TWO, ticket.getVehicleRegNumber());
+            ps.setDouble(Index.PARAMETER_INDEX_THREE, ticket.getPrice());
+            ps.setTimestamp(Index.PARAMETER_INDEX_FOUR, getTimeStamp(ticket.getInTime()));
+            ps.setTimestamp(Index.PARAMETER_INDEX_FIVE, (ticket.getOutTime() == null)
                     ? null : (new Timestamp(ticket.getOutTime().getTime())));
 
             return ps.execute();
@@ -105,18 +100,17 @@ public class TicketDAO {
         try {
             con = dataBaseConfig.getConnection();
             PreparedStatement ps = con.prepareStatement(DBConstants.GET_TICKET);
-            //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
-            ps.setString(1, vehicleRegNumber);
+            ps.setString(Index.PARAMETER_INDEX_ONE, vehicleRegNumber);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 ticket = new Ticket();
-                ParkingSpot parkingSpot = new ParkingSpot( rs.getInt(1), ParkingType.valueOf(rs.getString(6)), false);
+                ParkingSpot parkingSpot = new ParkingSpot( rs.getInt(Index.COLUMN_INDEX_ONE), ParkingType.valueOf(rs.getString(Index.COLUMN_INDEX_SIX)), false);
                 ticket.setParkingSpot(parkingSpot);
-                ticket.setId(rs.getInt(2));
+                ticket.setId(rs.getInt(Index.COLUMN_INDEX_TWO));
                 ticket.setVehicleRegNumber(vehicleRegNumber);
-                ticket.setPrice(rs.getDouble(3));
-                ticket.setInTime(rs.getTimestamp(4));
-                ticket.setOutTime(rs.getTimestamp(5));
+                ticket.setPrice(rs.getDouble(Index.COLUMN_INDEX_THREE));
+                ticket.setInTime(rs.getTimestamp(Index.COLUMN_INDEX_FOUR));
+                ticket.setOutTime(rs.getTimestamp(Index.COLUMN_INDEX_FIVE));
             }
             dataBaseConfig.closeResultSet(rs);
             dataBaseConfig.closePreparedStatement(ps);
@@ -136,14 +130,13 @@ public class TicketDAO {
     public boolean updateTicket(final Ticket ticket) {
         Connection con = null;
         try {
-            int parameterIndex = 1;
             con = dataBaseConfig.getConnection();
             PreparedStatement ps = con.prepareStatement(
                     DBConstants.UPDATE_TICKET);
-            ps.setDouble(parameterIndex++, ticket.getPrice());
-            ps.setTimestamp(parameterIndex++, new Timestamp(
+            ps.setDouble(Index.PARAMETER_INDEX_ONE, ticket.getPrice());
+            ps.setTimestamp(Index.PARAMETER_INDEX_TWO, new Timestamp(
                     ticket.getOutTime().getTime()));
-            ps.setInt(parameterIndex++, ticket.getId());
+            ps.setInt(Index.PARAMETER_INDEX_THREE, ticket.getId());
             ps.execute();
 
             return true;
@@ -158,14 +151,13 @@ public class TicketDAO {
     public boolean updateInTime(Date inTime, int Id) {
         Connection con = null;
         try {
-            int parameterIndex = 1;
             con = dataBaseConfig.getConnection();
             PreparedStatement ps = con.prepareStatement(
                     DBConstants.UPDATE_INTIME);
 
-            ps.setTimestamp(1, new Timestamp(
+            ps.setTimestamp(Index.PARAMETER_INDEX_ONE, new Timestamp(
                     inTime.getTime()));
-            ps.setInt(2, Id);
+            ps.setInt(Index.PARAMETER_INDEX_TWO, Id);
             ps.execute();
 
             return true;
@@ -189,10 +181,10 @@ public class TicketDAO {
             PreparedStatement ps = con.prepareStatement(
                     DBConstants.COUNT_TICKET);
             //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
-            ps.setString(1, vehicleRegNumber);
+            ps.setString(Index.PARAMETER_INDEX_ONE, vehicleRegNumber);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                ticket = rs.getInt(1);
+                ticket = rs.getInt(Index.COLUMN_INDEX_ONE);
             }
             dataBaseConfig.closeResultSet(rs);
             dataBaseConfig.closePreparedStatement(ps);
