@@ -80,8 +80,8 @@ public class TicketDAO {
             ps.setTimestamp(Index.PARAMETER_INDEX_FIVE,
                     (ticket.getOutTime() == null)
                     ? null : (new Timestamp(ticket.getOutTime().getTime())));
-
-            return ps.execute();
+            boolean returnPsExecute = ps.execute();
+            return returnPsExecute;
         } catch (Exception ex) {
             LOGGER.error("Error fetching next available slot", ex);
         } finally {
