@@ -51,7 +51,12 @@ public final class DBConstants {
      * Count Ticket.
      */
     public static final String COUNT_TICKET = "select count(t.ID)"
-            + " as tickets from ticket t where t.VEHICLE_REG_NUMBER=? and t.OUT_TIME is not null ";
+            + " as tickets from ticket t where t.VEHICLE_REG_NUMBER=? "
+            + "and t.OUT_TIME is not null ";
 
-    public static final String UPDATE_INTIME = "update ticket set IN_TIME=? where ID=?";
+    /**
+     * Update inTime.
+     */
+    public static final String UPDATE_INTIME = "update ticket set IN_TIME=? "
+            + "where ID=?";
 }

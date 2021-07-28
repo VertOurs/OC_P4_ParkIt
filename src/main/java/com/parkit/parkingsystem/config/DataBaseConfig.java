@@ -31,14 +31,14 @@ public class DataBaseConfig {
                                              IOException {
         LOGGER.info("Create DB connection");
 
-        Properties DBProperties = new Properties();
+        Properties dbProperties = new Properties();
         InputStream inputStream = getClass().getClassLoader().
                 getResourceAsStream("log4j2.properties");
-        DBProperties.load(inputStream);
-        String driver = DBProperties.getProperty("driver");
-        String url = DBProperties.getProperty("url");
-        String username = DBProperties.getProperty("username");
-        String password = DBProperties.getProperty("password");
+        dbProperties.load(inputStream);
+        String driver = dbProperties.getProperty("driver");
+        String url = dbProperties.getProperty("url");
+        String username = dbProperties.getProperty("username");
+        String password = dbProperties.getProperty("password");
 
         Class.forName(driver);
         return DriverManager.getConnection(url, username, password);

@@ -112,7 +112,7 @@ public class Ticket {
         if (inTimeField != null) {
             this.inTime = new Date(inTimeField.getTime());
         } else {
-            this.inTime = null ;
+            this.inTime = null;
         }
     }
 
@@ -133,9 +133,10 @@ public class Ticket {
      * @param outTimeField
      */
     public void setOutTime(final Date outTimeField) {
-        if (outTimeField != null) { this.outTime = new Date(outTimeField.getTime());  }
-        else {
-            this.outTime = null ;
+        if (outTimeField != null) {
+            this.outTime = new Date(outTimeField.getTime());
+        } else {
+            this.outTime = null;
         }
     }
 }

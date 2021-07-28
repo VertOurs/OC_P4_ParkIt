@@ -70,7 +70,6 @@ public class ParkingDataBaseIT {
         parkingService.processIncomingVehicle();
         Ticket thisTicket = ticketDAO.getTicket("ABCDEF");
         ticketDAO.updateInTime(new Date(System.currentTimeMillis() - 60 * 60 * 1000), thisTicket.getId());
-        //Thread.sleep(100);
         parkingService.processExitingVehicle();
         thisTicket = ticketDAO.getTicket("ABCDEF");
         assertEquals(1.5, thisTicket.getPrice());

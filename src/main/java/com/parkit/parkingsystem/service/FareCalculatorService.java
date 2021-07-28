@@ -2,6 +2,8 @@ package com.parkit.parkingsystem.service;
 
 import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.model.Ticket;
+
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.Duration;
@@ -59,6 +61,7 @@ public class FareCalculatorService {
         double carRateWithDiscount = Fare.CAR_RATE_PER_HOUR;
         double bikeRateWithDiscount = Fare.BIKE_RATE_PER_HOUR;
 
+
         if (count > 0) {
             carRateWithDiscount =  (Fare.CAR_RATE_PER_HOUR
                     - calculatePercentage(Fare.CAR_RATE_PER_HOUR,
@@ -71,12 +74,20 @@ public class FareCalculatorService {
         final int oneHour = 3600;
         switch (ticket.getParkingSpot().getParkingType()) {
             case CAR:
-                ticket.setPrice((durationThirtyMinutes /oneHour) * carRateWithDiscount);
+                double carPriceCalcul = ((durationThirtyMinutes / oneHour)
+                        * carRateWithDiscount);
+                double carPriceRound = Math.round(carPriceCalcul
+                        * Fare.ROUND_TWO_DECIMALS) / Fare.ROUND_TWO_DECIMALS;
+                ticket.setPrice(carPriceRound);
 
                 break;
 
             case BIKE:
-                ticket.setPrice((durationThirtyMinutes / oneHour) * bikeRateWithDiscount);
+                double bikePriceCalcul = ((durationThirtyMinutes / oneHour)
+                        * bikeRateWithDiscount);
+                double bikePriceRound = Math.round(bikePriceCalcul
+                        * Fare.ROUND_TWO_DECIMALS) / Fare.ROUND_TWO_DECIMALS;
+                ticket.setPrice(bikePriceRound);
                 break;
 
             default: throw new IllegalArgumentException("Unkown Parking Type");

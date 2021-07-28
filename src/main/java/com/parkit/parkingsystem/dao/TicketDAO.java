@@ -70,11 +70,15 @@ public class TicketDAO {
             ps = con.prepareStatement(
                     DBConstants.SAVE_TICKET);
 
-            ps.setInt(Index.PARAMETER_INDEX_ONE, ticket.getParkingSpot().getId());
-            ps.setString(Index.PARAMETER_INDEX_TWO, ticket.getVehicleRegNumber());
+            ps.setInt(Index.PARAMETER_INDEX_ONE,
+                    ticket.getParkingSpot().getId());
+            ps.setString(Index.PARAMETER_INDEX_TWO,
+                    ticket.getVehicleRegNumber());
             ps.setDouble(Index.PARAMETER_INDEX_THREE, ticket.getPrice());
-            ps.setTimestamp(Index.PARAMETER_INDEX_FOUR, getTimeStamp(ticket.getInTime()));
-            ps.setTimestamp(Index.PARAMETER_INDEX_FIVE, (ticket.getOutTime() == null)
+            ps.setTimestamp(Index.PARAMETER_INDEX_FOUR,
+                    getTimeStamp(ticket.getInTime()));
+            ps.setTimestamp(Index.PARAMETER_INDEX_FIVE,
+                    (ticket.getOutTime() == null)
                     ? null : (new Timestamp(ticket.getOutTime().getTime())));
 
             return ps.execute();
@@ -97,14 +101,20 @@ public class TicketDAO {
     public Ticket getTicket(final String vehicleRegNumber) {
         Connection con = null;
         Ticket ticket = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try {
             con = dataBaseConfig.getConnection();
-            PreparedStatement ps = con.prepareStatement(DBConstants.GET_TICKET);
+            ps = con.prepareStatement(DBConstants.GET_TICKET);
             ps.setString(Index.PARAMETER_INDEX_ONE, vehicleRegNumber);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 ticket = new Ticket();
-                ParkingSpot parkingSpot = new ParkingSpot( rs.getInt(Index.COLUMN_INDEX_ONE), ParkingType.valueOf(rs.getString(Index.COLUMN_INDEX_SIX)), false);
+                ParkingSpot parkingSpot = new ParkingSpot(
+                        rs.getInt(Index.COLUMN_INDEX_ONE),
+                        ParkingType.valueOf(
+                                rs.getString(Index.COLUMN_INDEX_SIX)),
+                        false);
                 ticket.setParkingSpot(parkingSpot);
                 ticket.setId(rs.getInt(Index.COLUMN_INDEX_TWO));
                 ticket.setVehicleRegNumber(vehicleRegNumber);
@@ -117,6 +127,8 @@ public class TicketDAO {
         } catch (Exception ex) {
             LOGGER.error("Error fetching next available slot", ex);
         } finally {
+            dataBaseConfig.closeResultSet(rs);
+            dataBaseConfig.closePreparedStatement(ps);
             dataBaseConfig.closeConnection(con);
             return ticket;
         }
@@ -129,9 +141,10 @@ public class TicketDAO {
      */
     public boolean updateTicket(final Ticket ticket) {
         Connection con = null;
+        PreparedStatement ps = null;
         try {
             con = dataBaseConfig.getConnection();
-            PreparedStatement ps = con.prepareStatement(
+            ps = con.prepareStatement(
                     DBConstants.UPDATE_TICKET);
             ps.setDouble(Index.PARAMETER_INDEX_ONE, ticket.getPrice());
             ps.setTimestamp(Index.PARAMETER_INDEX_TWO, new Timestamp(
@@ -143,27 +156,36 @@ public class TicketDAO {
         } catch (Exception ex) {
             LOGGER.error("Error saving ticket info", ex);
         } finally {
+            dataBaseConfig.closePreparedStatement(ps);
             dataBaseConfig.closeConnection(con);
         }
         return false;
     }
 
-    public boolean updateInTime(Date inTime, int Id) {
+    /**
+     * allow to Update inTime.
+     * @param inTime
+     * @param id
+     * @return the value of InTime in DB.
+     */
+    public boolean updateInTime(final Date inTime, final int id) {
         Connection con = null;
+        PreparedStatement ps = null;
         try {
             con = dataBaseConfig.getConnection();
-            PreparedStatement ps = con.prepareStatement(
+            ps = con.prepareStatement(
                     DBConstants.UPDATE_INTIME);
 
             ps.setTimestamp(Index.PARAMETER_INDEX_ONE, new Timestamp(
                     inTime.getTime()));
-            ps.setInt(Index.PARAMETER_INDEX_TWO, Id);
+            ps.setInt(Index.PARAMETER_INDEX_TWO, id);
             ps.execute();
 
             return true;
         } catch (Exception ex) {
             LOGGER.error("Error saving ticket info", ex);
         } finally {
+            dataBaseConfig.closePreparedStatement(ps);
             dataBaseConfig.closeConnection(con);
         }
         return false;
@@ -176,21 +198,24 @@ public class TicketDAO {
     public int countTicket(final String vehicleRegNumber) {
         Connection con = null;
         int ticket = 0;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         try {
             con = dataBaseConfig.getConnection();
-            PreparedStatement ps = con.prepareStatement(
+            ps = con.prepareStatement(
                     DBConstants.COUNT_TICKET);
             //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
             ps.setString(Index.PARAMETER_INDEX_ONE, vehicleRegNumber);
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 ticket = rs.getInt(Index.COLUMN_INDEX_ONE);
             }
-            dataBaseConfig.closeResultSet(rs);
-            dataBaseConfig.closePreparedStatement(ps);
+
         } catch (Exception ex) {
             LOGGER.error("Error count ticket", ex);
         } finally {
+            dataBaseConfig.closeResultSet(rs);
+            dataBaseConfig.closePreparedStatement(ps);
             dataBaseConfig.closeConnection(con);
             return ticket;
         }

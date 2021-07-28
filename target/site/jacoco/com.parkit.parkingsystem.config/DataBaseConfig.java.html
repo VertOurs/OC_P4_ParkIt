@@ -31,14 +31,14 @@ import java.util.Properties;
                                              IOException {
 <span class="nc" id="L32">        LOGGER.info(&quot;Create DB connection&quot;);</span>
 
-<span class="nc" id="L34">        Properties DBProperties = new Properties();</span>
+<span class="nc" id="L34">        Properties dbProperties = new Properties();</span>
 <span class="nc" id="L35">        InputStream inputStream = getClass().getClassLoader().</span>
 <span class="nc" id="L36">                getResourceAsStream(&quot;log4j2.properties&quot;);</span>
-<span class="nc" id="L37">        DBProperties.load(inputStream);</span>
-<span class="nc" id="L38">        String driver = DBProperties.getProperty(&quot;driver&quot;);</span>
-<span class="nc" id="L39">        String url = DBProperties.getProperty(&quot;url&quot;);</span>
-<span class="nc" id="L40">        String username = DBProperties.getProperty(&quot;username&quot;);</span>
-<span class="nc" id="L41">        String password = DBProperties.getProperty(&quot;password&quot;);</span>
+<span class="nc" id="L37">        dbProperties.load(inputStream);</span>
+<span class="nc" id="L38">        String driver = dbProperties.getProperty(&quot;driver&quot;);</span>
+<span class="nc" id="L39">        String url = dbProperties.getProperty(&quot;url&quot;);</span>
+<span class="nc" id="L40">        String username = dbProperties.getProperty(&quot;username&quot;);</span>
+<span class="nc" id="L41">        String password = dbProperties.getProperty(&quot;password&quot;);</span>
 
 <span class="nc" id="L43">        Class.forName(driver);</span>
 <span class="nc" id="L44">        return DriverManager.getConnection(url, username, password);</span>

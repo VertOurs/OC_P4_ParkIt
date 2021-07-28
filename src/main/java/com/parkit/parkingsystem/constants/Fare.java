@@ -19,4 +19,8 @@ public final class Fare {
      * Discount for old customer.
      */
     public static final double DISCOUNT_FOR_OLD_CUSTOMER = 5.0;
+    /**
+     * Round with two decimals.
+     */
+    public static final double ROUND_TWO_DECIMALS = 100.0;
 }

@@ -112,7 +112,7 @@ import java.util.Date;
 <span class="pc bpc" id="L112" title="1 of 2 branches missed.">        if (inTimeField != null) {</span>
 <span class="fc" id="L113">            this.inTime = new Date(inTimeField.getTime());</span>
         } else {
-<span class="nc" id="L115">            this.inTime = null ;</span>
+<span class="nc" id="L115">            this.inTime = null;</span>
         }
 <span class="fc" id="L117">    }</span>
 
@@ -133,10 +133,11 @@ import java.util.Date;
      * @param outTimeField
      */
     public void setOutTime(final Date outTimeField) {
-<span class="fc bfc" id="L136" title="All 2 branches covered.">        if (outTimeField != null) { this.outTime = new Date(outTimeField.getTime());  }</span>
-        else {
-<span class="fc" id="L138">            this.outTime = null ;</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        if (outTimeField != null) {</span>
+<span class="fc" id="L137">            this.outTime = new Date(outTimeField.getTime());</span>
+        } else {
+<span class="fc" id="L139">            this.outTime = null;</span>
         }
-<span class="fc" id="L140">    }</span>
+<span class="fc" id="L141">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,12 +1,14 @@
-#Mon Jul 26 10:58:21 CEST 2021
-C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\service\\ParkingService.java=1627031142431
+#Wed Jul 28 14:13:45 CEST 2021
+C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\service\\ParkingService.java=1627466172568
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\service\\package-info.java=1626942826871
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\config\\package-info.java=1626942442877
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\constants\\package-info.java=1626942442882
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\model\\package-info.java=1626942726572
-C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\service\\FareCalculatorService.java=1626783786744
+C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\dao\\ParkingSpotDAO.java=1627306820917
 module-resource*?\:checkstyle-xpath-suppressions.xml=5048BF8911ACAB926CD0434141395DE248375A26
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\resources\\log4j2.properties=1626957587482
+C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\constants\\DBConstants.java=1627306775130
+C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\model\\Ticket.java=1627307162352
 module-resource*?\:checkstyle-suppressions.xml=667225531095C9B1EEDAF6E5DDFD7B4727161DE1
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\dao\\package-info.java=1626942597398
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\constants\\ParkingType.java=1626702717307
@@ -14,6 +16,9 @@ C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\App.java=1626789922041
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\util\\InputReaderUtil.java=1627031891855
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\constants\\Index.java=1627289150947
+C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\package-info.java=1627307209634
 configuration*?=5E36B1F6390BF1DF7E98E343788797C6F5BDEC95
-C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\constants\\Fare.java=1626789517344
+C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\config\\DataBaseConfig.java=1627306687912
+C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\dao\\TicketDAO.java=1627307040814
+C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\constants\\Fare.java=1627474185200
 C\:\\Users\\rapha\\Google\ Drive\\11\ reconversion\ dev\ JAVA\\3\ Openclassroom\\2\ EXO\ EN\ COURS\\P4\\1\ D\u00E9pot\ git\\parkingsystem\\src\\main\\java\\com\\parkit\\parkingsystem\\model\\ParkingSpot.java=1626769561445
