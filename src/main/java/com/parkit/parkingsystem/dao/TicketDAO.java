@@ -122,8 +122,7 @@ public class TicketDAO {
                 ticket.setInTime(rs.getTimestamp(Index.COLUMN_INDEX_FOUR));
                 ticket.setOutTime(rs.getTimestamp(Index.COLUMN_INDEX_FIVE));
             }
-            dataBaseConfig.closeResultSet(rs);
-            dataBaseConfig.closePreparedStatement(ps);
+
         } catch (Exception ex) {
             LOGGER.error("Error fetching next available slot", ex);
         } finally {

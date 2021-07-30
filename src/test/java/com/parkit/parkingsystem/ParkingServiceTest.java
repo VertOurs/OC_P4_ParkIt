@@ -22,7 +22,7 @@ import java.util.Date;
 
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
-@Disabled
+
 @ExtendWith(MockitoExtension.class)
 public class ParkingServiceTest {
 
