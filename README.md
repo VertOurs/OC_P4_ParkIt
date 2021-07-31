@@ -67,7 +67,7 @@ pom.xml file and execute the below command.
 
 ### run application
 go to the 'target' folder and open a terminal here. Execute the below command.
-`java -jar `
-on the .jar file whose name contains 'jar-with-dependencies'
+`java -jar parking-system-1.0-SNAPSHOT-jar-with-dependencies.jar`
+
 
 
